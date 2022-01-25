@@ -1,104 +1,50 @@
-import React, { useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native';
-import { bounce } from 'react-native/Libraries/Animated/Easing';
+import React from 'react'
+import { Text } from 'react-native';
 import styled from 'styled-components';
 
-const Container = styled.SafeAreaView`
-    flex: 1;
-`;
-
-const TitleWrap = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-`;
-
-const Title = styled.Text`
-    font-weight: bold;
-    font-size: 40px;
-    letter-spacing: 7px;
-`;
-
 const CategoryWrap = styled.View`
-    flex: 4;
-    justify-content: center;
-    padding-bottom: 30px;
+    flex: 1;
+    padding: 14px 10px 14px 10px;
 `;
 
 const Category = styled.TouchableOpacity`
     flex: 1;
+    border: 1px solid gray;
     justify-content: center;
     align-items: center;
-    margin: 10px;
-    border: 1px solid;
+    margin: 14px 0px 14px 0px;
 `;
 
-const MenuContainer = styled.View`
-  flex-direction: row;
+const CateTitle = styled.Text`
+    font-size: 15px;
+    letter-spacing: 1px;
 `;
 
-const MenuWrap = styled.TouchableOpacity`
-    flex: 1;
-    margin: 15px;
-    align-items: center;
-    background: lightgray;
-    padding : 5px;
-    border-radius: 5px;
-`;
-
-const Menu = styled.View`
-    padding: 10px;
-`;
 
 function Home({ navigation }) {
-    const [Main, setMain] = useState('Home');
     return (
-        <Container>
-            <TitleWrap>
-                <Title>{Main}</Title>
-            </TitleWrap>
-            { Main === 'Home' && <>
-                <CategoryWrap>
-                    <Category onPress={ () => navigation.navigate("Outer")}>
-                        <Text>Outer</Text>
-                    </Category>
-                    <Category onPress={ () => navigation.navigate("Top")}>
-                        <Text>Top</Text>
-                    </Category>
-                    <Category onPress={ () => navigation.navigate("Bottom")}>
-                        <Text>Bottom</Text>
-                    </Category>
-                    <Category onPress={ () => navigation.navigate("Dress")}>
-                        <Text>Dress</Text>
-                    </Category>
-                    <Category onPress={ () => navigation.navigate("Shoes")}>
-                        <Text>Shoes</Text>
-                    </Category>
-                    <Category onPress={ () => navigation.navigate("Acc")}>
-                        <Text>Acc</Text>
-                    </Category>
-                </CategoryWrap>
-            </>}
-            { Main === 'Add' && <CategoryWrap><Text>Add</Text></CategoryWrap>}
-            { Main === 'MyPage' && <CategoryWrap><Text>MyPage</Text></CategoryWrap>}
-            <MenuContainer>
-                <MenuWrap onPress={ () => {setMain('Add')}}>
-                    <Menu>
-                        <Text>Add</Text>
-                    </Menu>
-                </MenuWrap>
-                <MenuWrap onPress={ () => {setMain('Home')}}>
-                    <Menu>
-                        <Text>Home</Text>
-                    </Menu>
-                </MenuWrap>
-                <MenuWrap onPress={ () => {setMain('MyPage')}}>
-                    <Menu>
-                        <Text>MyPage</Text>
-                    </Menu>
-                </MenuWrap>
-            </MenuContainer>
-        </Container>
+        <>
+            <CategoryWrap>
+                <Category onPress={ () => navigation.navigate("Outer")}>
+                    <CateTitle>Outer</CateTitle>
+                </Category>
+                <Category onPress={ () => navigation.navigate("Top")}>
+                    <CateTitle>Top</CateTitle>
+                </Category>
+                <Category onPress={ () => navigation.navigate("Bottom")}>
+                    <CateTitle>Bottom</CateTitle>
+                </Category>
+                <Category onPress={ () => navigation.navigate("Dress")}>
+                    <CateTitle>Dress</CateTitle>
+                </Category>
+                <Category onPress={ () => navigation.navigate("Shoes")}>
+                    <CateTitle>Shoes</CateTitle>
+                </Category>
+                <Category onPress={ () => navigation.navigate("Acc")}>
+                    <CateTitle>Acc</CateTitle>
+                </Category>
+            </CategoryWrap>
+        </>    
     );
   }
   
