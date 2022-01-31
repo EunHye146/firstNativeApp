@@ -22,6 +22,7 @@ const CateTitle = styled.Text`
 
 
 function Home({ navigation }) {
+    const user = 'user';
     return (
         <>
             <CategoryWrap>
