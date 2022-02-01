@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Text, View } from 'react-native';
 import styled from 'styled-components';
 import Login from '../common/Login';
@@ -17,12 +17,10 @@ const TextEle = styled.Text`
 
 
 function MyPage() {
-    const [user, setUser] = useState();
-    const login = () => {
-        if (user)
-            setUser()
-        else
-            setUser('user');
+    const [user, setUser] = useState(null);
+
+    const logout = () => {
+        setUser(null);
     }
     return (
             <MyPageContainer>
@@ -30,10 +28,10 @@ function MyPage() {
                 user ? 
                 <View>
                     <TextEle>{user}님 안녕하세요</TextEle>
-                    <Button onPress={login} title='logout'/>
+                    <Button onPress={logout} title='logout'/>
                 </View> : 
                 <View>
-                    <Login login={login}/>
+                    <Login setUser={setUser}/>
                 </View>
                 }
 
