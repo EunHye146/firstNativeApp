@@ -73,7 +73,7 @@ function Login({ setUser }) {
             setAlert('아이디와 비밀번호를 모두 입력해주세요');
             return;
         }
-        fetch('http://ip주소/login', {
+        fetch('http://ip주소:4000/login', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

@@ -2,21 +2,58 @@ import React from 'react'
 import { Text } from 'react-native';
 import styled from 'styled-components';
 
-const CategoryWrap = styled.View`
+const CategoryWrap = styled.SafeAreaView`
     flex: 1;
-    padding: 14px 10px 14px 10px;
+    margin-left: 6px;
+    margin-right: 6px;
+`;
+
+const TitleWrap = styled.View` 
+    padding: 14px;
+`;
+
+const Title = styled.Text`
+    font-weight: bold;
+    font-size: 34px;
+`;
+
+const Left = styled.View`
+    position: absolute;
+    width: 50%;
+    top: 65px;
+`;
+
+const Right = styled.View`
+    position: absolute;
+    right: 0;
+    top: 165px;
+    width: 50%;
 `;
 
 const Category = styled.TouchableOpacity`
-    flex: 1;
-    border: 1px solid gray;
-    justify-content: center;
-    align-items: center;
-    margin: 14px 0px 14px 0px;
+    height: 200px;
+    background: gray;
+    margin: 6px;
 `;
 
-const CateTitle = styled.Text`
-    font-size: 15px;
+const AccCategory = styled.TouchableOpacity`
+    height: 100px;
+    background: gray;
+    margin: 6px;
+`;
+
+const LeftTitle = styled.Text`
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    letter-spacing: 1px;
+`;
+
+const RightTitle = styled.Text`
+    font-size: 20px;
+    position: absolute;
+    right: 0;
     letter-spacing: 1px;
 `;
 
@@ -26,24 +63,31 @@ function Home({ navigation }) {
     return (
         <>
             <CategoryWrap>
-                <Category onPress={ () => navigation.navigate("Outer")}>
-                    <CateTitle>Outer</CateTitle>
-                </Category>
-                <Category onPress={ () => navigation.navigate("Top")}>
-                    <CateTitle>Top</CateTitle>
-                </Category>
-                <Category onPress={ () => navigation.navigate("Bottom")}>
-                    <CateTitle>Bottom</CateTitle>
-                </Category>
-                <Category onPress={ () => navigation.navigate("Dress")}>
-                    <CateTitle>Dress</CateTitle>
-                </Category>
-                <Category onPress={ () => navigation.navigate("Shoes")}>
-                    <CateTitle>Shoes</CateTitle>
-                </Category>
-                <Category onPress={ () => navigation.navigate("Acc")}>
-                    <CateTitle>Acc</CateTitle>
-                </Category>
+                <TitleWrap>
+                    <Title>My Closet</Title>
+                </TitleWrap>
+                <Left>
+                    <Category onPress={ () => navigation.navigate("Outer")}>
+                        <LeftTitle style={{position: 'absolute', bottom: 0, right: 0}}>Outer</LeftTitle>
+                    </Category>
+                    <Category onPress={ () => navigation.navigate("Bottom")}>
+                        <LeftTitle style={{position: 'absolute', bottom: 0, right: 0}}>Bottom</LeftTitle>
+                    </Category>
+                    <Category onPress={ () => navigation.navigate("Shoes")}>
+                        <LeftTitle style={{position: 'absolute', bottom: 0}}>Shoes</LeftTitle>
+                    </Category>
+                </Left>
+                <Right>
+                    <Category onPress={ () => navigation.navigate("Top")}>
+                        <RightTitle>Top</RightTitle>
+                    </Category>
+                    <Category onPress={ () => navigation.navigate("Dress")}>
+                        <RightTitle>Dress</RightTitle>
+                    </Category>
+                    <AccCategory onPress={ () => navigation.navigate("Acc")}>
+                        <RightTitle>Acc</RightTitle>
+                    </AccCategory>
+                </Right>
             </CategoryWrap>
         </>    
     );

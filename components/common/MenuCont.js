@@ -13,7 +13,7 @@ const MenuWrap = styled.TouchableOpacity`
     background: lightgray;
     border-radius: 5px;
     width: 106px;
-    padding: 16px 0px 16px 0px;
+    padding: 20px 0px 20px 0px;
 `;
 
 const Menu = styled.Text`
