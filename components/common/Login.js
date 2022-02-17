@@ -63,7 +63,7 @@ const RegisterText = styled.Text`
     font-size: 14px;
 `;
 
-function Login({ setUser }) {
+function Login({ navigation }) {
     const [userId, setUserId] = useState();
     const [userPw, setUserPw] = useState();
     const [alert, setAlert] = useState(null);
@@ -89,7 +89,7 @@ function Login({ setUser }) {
                 return;
             }
             else {
-                setUser(userId);
+                navigation.navigate('Main');
             }
         });
     }

@@ -17,26 +17,10 @@ const TextEle = styled.Text`
 
 
 function MyPage() {
-    const [user, setUser] = useState(null);
-
-    const logout = () => {
-        setUser(null);
-    }
     return (
-            <MyPageContainer>
-                {
-                user ? 
-                <View>
-                    <TextEle>{user}님 안녕하세요</TextEle>
-                    <Button onPress={logout} title='logout'/>
-                </View> : 
-                <View>
-                    <Login setUser={setUser}/>
-                </View>
-                }
-
-            </MyPageContainer>
-            
+        <MyPageContainer>
+            <Text>mypage</Text>
+        </MyPageContainer>
     );
   }
   

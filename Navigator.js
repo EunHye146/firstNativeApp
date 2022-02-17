@@ -10,6 +10,9 @@ import Dress from './components/pages/Dress';
 import Outer from './components/pages/Outer';
 import Shoes from './components/pages/Shoes';
 import Top from './components/pages/Top';
+import Add from './components/pages/Add';
+import Login from './components/common/Login';
+import Detail from './components/common/Detail';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +27,9 @@ function App() {
         <Stack.Screen name="Outer" component={Outer} />
         <Stack.Screen name="Shoes" component={Shoes} />
         <Stack.Screen name="Top" component={Top} />
+        <Stack.Screen name="Add" component={Add}/>
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Detail" component={Detail}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

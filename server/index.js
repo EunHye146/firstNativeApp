@@ -23,7 +23,14 @@ app.get('/users', (req, res) => {
   });
 });
 
-//post로 바꿔서 로그인 하기
+app.get('/clothes/:id', (req, res) => {
+  const { id } = req.params;
+  connection.query("SELECT * from clothes where type='"+ id + "'", (error, rows) => {
+    if (error) throw error;
+    res.send(rows);
+  });
+});
+
 app.post('/login', (req, res) => {
     const id = req.body.u_id;
     const pw = req.body.u_pw;
